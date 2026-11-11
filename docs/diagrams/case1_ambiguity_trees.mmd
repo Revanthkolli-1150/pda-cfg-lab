@@ -1,0 +1,31 @@
+```mermaid
+graph TD
+    subgraph Tree 1: (id + id) * id [Addition First]
+        R1["E"] --> L1["E"]
+        R1 --> OP1["*"]
+        R1 --> ID1_3["E"]
+
+        L1 --> L1_1["E"]
+        L1 --> OP1_2["+"]
+        L1 --> L1_2["E"]
+
+        L1_1 --> T1_1["id"]
+        L1_2 --> T1_2["id"]
+        ID1_3 --> T1_3["id"]
+    end
+
+    subgraph Tree 2: id + (id * id) [Multiplication First - Standard]
+        R2["E"] --> ID2_1["E"]
+        R2 --> OP2["+"]
+        R2 --> RT2["E"]
+
+        ID2_1 --> T2_1["id"]
+
+        RT2 --> RT2_1["E"]
+        RT2 --> OP2_2["*"]
+        RT2 --> RT2_2["E"]
+
+        RT2_1 --> T2_2["id"]
+        RT2_2 --> T2_3["id"]
+    end
+```

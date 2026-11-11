@@ -1,0 +1,15 @@
+```mermaid
+stateDiagram-v2
+    [*] --> q0: Start (Stack = [Z0])
+
+    q0 --> q0: (, Z0 → (Z0  [Push '(']
+    q0 --> q0: (, ( → ((  [Push '(']
+    q0 --> q0: ), ( → ε  [Pop '(']
+
+    q0 --> q_acc: ε, Z0 → Z0  [Accept: Input exhausted & stack = Z0]
+    q0 --> q_rej: ), Z0 → Z0  [Reject: Stack Underflow]
+    q0 --> q_rej: ε, ( → (  [Reject: Stack Overflow at EOF]
+
+    q_acc --> [*]: ACCEPTED
+    q_rej --> [*]: REJECTED
+```

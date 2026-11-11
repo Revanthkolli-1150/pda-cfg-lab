@@ -1,0 +1,21 @@
+```mermaid
+graph TD
+    C0["q0 (Index 0, [Z0])"] --> CP0["q_push (Index 0, [Z0])"]
+
+    CP0 -->|Guess Even Mid| C_MID0["q_comp (Dies: input remaining)"]
+    CP0 -->|Push 'a'| CP1["q_push (Index 1, [Z0, a])"]
+    CP0 -->|Guess Odd Mid 'a'| C_ODD0["q_comp (Index 1, [Z0])"]
+
+    CP1 -->|Push 'b'| CP2["q_push (Index 2, [Z0, a, b])"]
+    CP1 -->|Guess Even Mid| C_MID1["q_comp (Dies on mismatch)"]
+
+    CP2 -->|Guess Even Midpoint!| C_WIN["q_comp (Index 2, [Z0, a, b]) ★ WINNER"]
+    CP2 -->|Push 'b'| CP3["q_push (Index 3...)"]
+
+    C_WIN -->|Read 'b', Pop 'b'| C_POP1["q_comp (Index 3, [Z0, a])"]
+    C_POP1 -->|Read 'a', Pop 'a'| C_POP2["q_comp (Index 4, [Z0])"]
+    C_POP2 -->|ε, Z0 → Z0| C_ACC["q_acc (ACCEPTED)"]
+
+    style C_WIN stroke:#10b981,stroke-width:2px;
+    style C_ACC stroke:#10b981,stroke-width:3px,fill:#064e3b;
+```

@@ -1,0 +1,18 @@
+```mermaid
+stateDiagram-v2
+    [*] --> q0: Start
+    q0 --> q_push: ε, Z0 → Z0  [Initialize]
+
+    q_push --> q_push: a, X → aX  [Push 'a']
+    q_push --> q_push: b, X → bX  [Push 'b']
+
+    q_push --> q_comp: ε, X → X  [Guess Even Midpoint]
+    q_push --> q_comp: a, X → X  [Guess Odd Midpoint 'a']
+    q_push --> q_comp: b, X → X  [Guess Odd Midpoint 'b']
+
+    q_comp --> q_comp: a, a → ε  [Match & Pop 'a']
+    q_comp --> q_comp: b, b → ε  [Match & Pop 'b']
+
+    q_comp --> q_acc: ε, Z0 → Z0  [Accept: Matched back to Z0]
+    q_acc --> [*]: ACCEPTED
+```

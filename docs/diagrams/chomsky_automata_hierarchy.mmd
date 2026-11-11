@@ -1,0 +1,15 @@
+```mermaid
+graph BT
+    subgraph Chomsky Hierarchy & Automata Power
+        T3["Type 3: Regular Languages<br/>Automata: DFA ≡ NFA<br/>Memory: Finite States O(1)"]
+        DCFL["Deterministic Context-Free (DCFL)<br/>Automata: DPDA<br/>Memory: 1 LIFO Stack (Deterministic)"]
+        T2["Type 2: Context-Free Languages (CFL)<br/>Automata: NPDA (Strictly > DPDA)<br/>Memory: 1 LIFO Stack (Nondeterministic)"]
+        T1["Type 1: Context-Sensitive Languages<br/>Automata: Linear Bounded Automata (LBA)<br/>Memory: Bounded Tape"]
+        T0["Type 0: Recursively Enumerable<br/>Automata: Turing Machine (DTM ≡ NTM)<br/>Memory: Infinite 2-Way Tape"]
+
+        T3 --> DCFL
+        DCFL --> T2
+        T2 --> T1
+        T1 --> T0
+    end
+```

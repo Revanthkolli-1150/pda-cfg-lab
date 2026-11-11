@@ -1,0 +1,16 @@
+```mermaid
+graph TD
+    subgraph Stratified Arithmetic CFG
+        E["E (Expression: Low Precedence)"]
+        T["T (Term: High Precedence)"]
+        F["F (Factor: Atomic Delimiters)"]
+
+        E -->|"+" or "-"| E1["E + T | E - T"]
+        E -->|Passthrough| T
+        T -->|"*" or "/"| T1["T * F | T / F"]
+        T -->|Passthrough| F
+        F -->|"Parenthesized"| F1["( E )"]
+        F -->|"Identifier"| F2["id"]
+        F -->|"Number"| F3["num"]
+    end
+```

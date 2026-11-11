@@ -1,0 +1,25 @@
+```mermaid
+graph TD
+    subgraph Dyck Language Parse Tree for (()())
+        S1["S"] --> LP1["("]
+        S1 --> S2["S"]
+        S1 --> RP1[")"]
+        S1 --> S3["S"]
+
+        S2 --> LP2["("]
+        S2 --> S4["S"]
+        S2 --> RP2[")"]
+        S2 --> S5["S"]
+
+        S4 --> EPS1["ε"]
+
+        S5 --> LP3["("]
+        S5 --> S6["S"]
+        S5 --> RP3[")"]
+        S5 --> S7["S"]
+
+        S6 --> EPS2["ε"]
+        S7 --> EPS3["ε"]
+        S3 --> EPS4["ε"]
+    end
+```
